@@ -1,14 +1,5 @@
 const Vertice = require('./Vertice')
 
-class TrianguloDegeneradoError extends Error{
-    constructor(){
-        const message = "Os vértices são colineares e formam um triângulo degenerado."
-        super(message);
-        this.name = "TrianguloDegeneradoError";
-    }
-}
-
-
 class Triangulo{
     #v1;
     #v2;
@@ -20,7 +11,7 @@ class Triangulo{
         this.#v3 = v3;
 
         if (!this.#isTriangulo())
-            throw new TrianguloDegeneradoError()
+            throw new Error("Os vértices são colineares e formam um triângulo degenerado.")
     }
 
     get v1(){
